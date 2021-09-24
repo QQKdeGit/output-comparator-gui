@@ -17,7 +17,7 @@
 指令如下
 
   ```shell
-  bash comparator.sh input.cpp prog1.cpp prog2.cpp
+  bash comparator.sh input.cpp prog1.cpp prog2.cpp GROUP_NUMBER
   ```
 
 > `input.cpp` 替换为能随机生成输入的文件名
@@ -25,7 +25,8 @@
 > `prog1.cpp` 替换为第一份代码的文件名
 >
 > `prog2.cpp` 替换为第二份代码的文件名
-
+>
+> `GROUP_NUMBER` 替换为需要对拍的组数
 
 
 ## 后续开发
