@@ -68,3 +68,8 @@ bash comparator.sh input.cpp prog1.cpp prog2.cpp GROUP_NUMBER
 
 
 
+## 后续开发
+
+- 目前只能支持 `C/C++` 的编译，后续开发支持更多语言
+- 美化界面
+
