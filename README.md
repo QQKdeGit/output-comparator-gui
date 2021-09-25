@@ -1,6 +1,10 @@
 # 代码对拍器
 
-[toc]
+* [代码对拍器](#代码对拍器)
+   * [comparator.py 使用说明](#comparatorpy-使用说明)
+   * [comparator.sh 使用说明（已废弃）](#comparatorsh-使用说明已废弃)
+   * [版本更新](#版本更新)
+
 
 ## comparator.py 使用说明 
 
