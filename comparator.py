@@ -18,6 +18,10 @@ def setting_break():
     is_break = True
 
 
+def clear_text():
+    text_compare.delete("1.0", "end")
+
+
 def open_random_file():
     global random_path, random_name, random_name_no_suffix, text_random
     random_path = filedialog.askopenfilename(
@@ -210,7 +214,10 @@ button_compare = tkinter.Button(
 button_compare.pack(side='left')
 button_compare_stop = tkinter.Button(
     frame4, text='Stop', command=setting_break, width=10)
-button_compare_stop.pack(side='right')
+button_compare_stop.pack(side='left')
+button_compare = tkinter.Button(
+    frame4, text='Clear', command=clear_text, width=10)
+button_compare.pack(side='left')
 
 text_compare = tkinter.Text(window, font=('Consolas', 12), height=30)
 text_compare.pack()
