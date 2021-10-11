@@ -3,9 +3,11 @@
 
 import tkinter
 from tkinter import filedialog
+import tkinter.messagebox
 import os
 import subprocess
 import platform
+from PIL import Image, ImageTk
 
 
 def update_text():
@@ -72,15 +74,15 @@ def deleteEXE():
     if os.path.exists(source2):
         os.remove(source2)
 
-    print(random)
-
 
 def compileSource(file_path, file_name_no_suffix):
     text_compare.insert('end', '[BUILD]', 'PURPLE')
     text_compare.insert('end', ' Compiling ' + file_path + '... ')
     update_text()
+
     result = subprocess.call(
-        ["g++", "-g", "-std=c++17", file_path, "-o", os.path.split(file_path)[0] + '/' + file_name_no_suffix], shell=False)
+        ["g++", "-g", "-std=c++17", "-O3", file_path, "-o", os.path.split(file_path)[0] + '/' + file_name_no_suffix], shell=False)
+
     if result == 0:
         text_compare.insert('end', 'done\n', 'GREEN')
         update_text()
@@ -230,4 +232,24 @@ text_compare.tag_config('GRAY', foreground='GRAY')
 
 is_break = False
 
+# def javaCompile():
+#     file_path = "C:/Users/QQK/Desktop/qqk.java"
+
+#     text_compare.insert('end', '[BUILD]', 'PURPLE')
+#     text_compare.insert('end', ' Compiling ' + file_path + '... ')
+#     update_text()
+
+#     result = subprocess.call(["java", os.path.split(file_path)[0]], shell=False)
+
+#     if result == 0:
+#         text_compare.insert('end', 'done\n', 'GREEN')
+#         update_text()
+#         return 1
+#     else:
+#         text_compare.insert('end', 'failed\n', 'RED')
+#         update_text()
+#         return 0
+
+
+window.tk.call('wm', 'iconphoto', window._w, ImageTk.PhotoImage(Image.open(os.getcwd() + "/QQK.png")))
 window.mainloop()
