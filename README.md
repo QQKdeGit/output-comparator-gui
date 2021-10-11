@@ -2,7 +2,7 @@
 
 * [代码对拍器](#代码对拍器)
    * [comparator.py 使用说明](#comparatorpy-使用说明)
-   * [版本更新](#版本更新)
+   * [随机数的生成](#随机数的生成)
    * [后续开发](#后续开发)
    * [comparator.sh 使用说明（已废弃）](#comparatorsh-使用说明已废弃)
 
@@ -28,22 +28,20 @@ python3 comparator.py
 随机数的生成推荐使用如下代码
 
 ```c++
-#include <iostream>
 #include <chrono>
-using namespace std;
-using namespace chrono;
 
-int main() {
+auto getRandom(int n) {
     // For Windows
-    auto random = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+    auto random = std::chrono::duration_cast<std::chrono::milliseconds>(
+                      std::chrono::system_clock::now().time_since_epoch())
+                      .count();
 
     // For all systems except Windows
-    // auto random = duration_cast<nanoseconds>(system_clock::now().time_since_epoch()).count();
+    // auto random = std::chrono::duration_cast<std::chrono::nanoseconds>(
+    //                   std::chrono::system_clock::now().time_since_epoch())
+    //                   .count();
 
-    // Output your own random
-    cout << random % 100 << endl;
-
-    return 0;
+    return random % n;
 }
 ```
 
@@ -60,17 +58,6 @@ auto randomNano = duration_cast<nanoseconds>(system_clock::now().time_since_epoc
 cout << randomNano << endl; // result: 1632628461956000
 ```
 
-
-
-
-## 版本更新
-
-|  更新时间  |             更新说明              |
-| :--------: | :-------------------------------: |
-| 2021.09.24 | 完成 `comparator.sh` 基本对拍功能 |
-| 2021.09.24 |      增加设置对拍组数的功能       |
-| 2021.09.25 |  完成 `comparator.py` 的基本功能  |
-| 2021.09.25 | 取消 GUI 版本中设置对拍组数的功能 |
 
 
 
